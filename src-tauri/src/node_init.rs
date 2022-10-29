@@ -1,5 +1,7 @@
+use crate::graph_p::Node;
+
 extern crate mac_address;
-mod graph;
+mod graph_p;
 
 /*
 * This module handles the fine implementation details of node initialization;
@@ -10,7 +12,33 @@ mod graph;
 * This function will assign each node a name from it's MAC address. If no address is
 * available, it will alert the user and assign a default name.
 */
-pub fn assign_node_name() -> String {}
+pub fn init_node_with_addr() -> Node {
+    let name = get_node_name();
+    let node = Node::new(name.clone());
+    return node;
+}
+
+/*
+* Gets MAC address as node name, or assigns a default random number
+*/
+pub fn get_node_name() -> String {
+    //get mac address
+    let DEFAULT: String = "Anonymous".to_owned();
+    let name = get_mac_address();
+    match name {
+        Ok(d) => {
+            println!("Found device MAC address {}", d);
+            return name;
+        }
+        Err(msg) => {
+            println!(
+                "Failed to find MAC address; using default \"{}\" Error: {}",
+                DEFAULT, msg
+            );
+            return DEFAULT;
+        }
+    }
+}
 
 /*
 * This function will use the node's location data to generate edge weights for the graph
@@ -20,9 +48,21 @@ pub fn generate_edge_weights() -> Graph {}
 /*
 * This function will scan an individual node, and update its edge weights accordingly
 */
-pub fn update_individual_node_data() -> Node {}
+pub fn update_individual_node_data(node: Node) -> Node {}
 
-// fn main() {
-//     //testing
-//     io::stdout("Hello world");
-// }
+// Create a unit test for the Graph struct
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn test_mac_addr() {
+        let name: String = get_node_name();
+        assert()
+    }
+
+    fn test_node_init_with_mac_addr() {
+        let node: Node = init_node_with_addr();
+        assert()
+    }
+}

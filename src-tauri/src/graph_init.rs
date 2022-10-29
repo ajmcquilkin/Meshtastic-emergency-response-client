@@ -1,4 +1,5 @@
-mod graph;
+mod graph_p;
+extern crate json;
 
 /*
 * This module handles all of the graph initialization and data flow.
@@ -6,32 +7,27 @@ mod graph;
 * on it, and return the result to the frontend.
 */
 
-// TODO: Questionable use of global (will need an unsafe block to get)
-static mut GRAPH: Graph = empty;
+//TODO: we may want to handle the coordinator node differently
+//TODO: we need a way to maintain/store graph state without the frontend; e.g. a global or filedump
 
 /*
 * This function initializes a graph from all available nodes, storing
 * node information with MAC addresses as keys.
  */
-pub fn initialize_graph_from_data() -> Graph {}
-
-/*
-* Adds a single node and associated edges/weights to the graph
-*/
-pub fn add_node_to_graph() -> Graph {}
+pub fn initialize_graph_from_data(json_data: json) -> Graph {}
 
 /*
 * This should trigger a fast graph update, adding any additional nodes and updating node location data
 */
-pub fn update_graph() -> Graph {}
+pub fn update_graph(graph: Graph) -> Graph {}
 
 /*
 * Note: this function runs algorithms on a copy of the graph, maintaining the graph state that
 * existed at call time.
 */
-pub fn run_algorithms_on_graph() -> Graph {}
+pub fn run_algorithms_on_graph(graph: Graph) -> Graph {}
 
 /*
 * This function serializes and sends graph data to the frontend
 */
-pub fn export_data_to_frontend() -> i32 {}
+pub fn export_data_to_frontend(graph: Graph) -> json {}
