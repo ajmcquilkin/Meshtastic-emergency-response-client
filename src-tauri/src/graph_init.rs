@@ -1,5 +1,5 @@
-mod graph_p;
 extern crate json;
+use crate::graph_p::{Graph, Node};
 
 /*
 * This module handles all of the graph initialization and data flow.

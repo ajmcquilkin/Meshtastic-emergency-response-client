@@ -1,7 +1,5 @@
-use crate::graph_p::Node;
-
 extern crate mac_address;
-mod graph_p;
+use crate::graph_p::{Graph, Node};
 
 /*
 * This module handles the fine implementation details of node initialization;
@@ -23,7 +21,7 @@ pub fn init_node_with_addr() -> Node {
 */
 pub fn get_node_name() -> String {
     //get mac address
-    let DEFAULT: String = "Anonymous".to_owned();
+    let DEFAULT: String = "Anonymous".to_string();
     let name = get_mac_address();
     match name {
         Ok(d) => {
@@ -58,11 +56,11 @@ mod tests {
     #[test]
     fn test_mac_addr() {
         let name: String = get_node_name();
-        assert()
+        assert_eq(1, 1);
     }
 
     fn test_node_init_with_mac_addr() {
         let node: Node = init_node_with_addr();
-        assert()
+        assert_eq(1, 1);
     }
 }
