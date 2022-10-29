@@ -6,7 +6,6 @@ This project uses the [Tauri](https://tauri.app/) framework, which uses the nati
 
 ![image](https://user-images.githubusercontent.com/46639306/197882383-e993add8-0900-4114-9cb6-9e9cb4d331d4.png)
 
-
 ## Development Prerequisites
 
 This project requires the following programs to be installed to develop for this application:
@@ -34,4 +33,4 @@ The following commands can be used to develop on this codebase. Note that it is 
 - `pnpm run ui:preview` - Runs the built UI from the `dist` directory. This command must be run after `ui:build`
 - `pnpm run ui:format` - Formats the UI codebase using [Prettier](https://prettier.io/) and [ESLint](https://eslint.org/)
 - `pnpm run rust:dev` - Starts the desktop application in development mode, allowing for hot reloading of UI and Rust code
-- `pnpm run rust:test` - Runs backend tests on the Rust codebase directory (`/src-tauri`)
+- `pnpm run rust:test` - Runs backend tests on the Rust codebase directory (`/src-tauri`). Add `-- --show-output` to show printlns.
