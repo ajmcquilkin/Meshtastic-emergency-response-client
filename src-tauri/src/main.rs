@@ -15,8 +15,6 @@ pub fn add(a: i32, b: i32) -> i32 {
 
 #[cfg(test)]
 mod tests {
-    use crate::node_init::assign_node_name;
-
     use super::*;
 
     #[test]

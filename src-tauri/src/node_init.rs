@@ -1,5 +1,7 @@
 extern crate mac_address;
+
 use crate::graph_p::{Graph, Node};
+use std::error::Error;
 
 /*
 * This module handles the fine implementation details of node initialization;
@@ -20,13 +22,14 @@ pub fn init_node_with_addr() -> Node {
 * Gets MAC address as node name, or assigns a default random number
 */
 pub fn get_node_name() -> String {
+    use mac_address::get_mac_address;
     //get mac address
-    let DEFAULT: String = "Anonymous".to_string();
+    let DEFAULT: String = "anonymous".to_string();
     let name = get_mac_address();
     match name {
         Ok(d) => {
-            println!("Found device MAC address {}", d);
-            return name;
+            println!("Found device MAC address {}", d.expect("NULL").to_string());
+            return d.expect("NULL").to_string();
         }
         Err(msg) => {
             println!(
@@ -40,13 +43,20 @@ pub fn get_node_name() -> String {
 
 /*
 * This function will use the node's location data to generate edge weights for the graph
+
 */
-pub fn generate_edge_weights() -> Graph {}
+pub fn generate_edge_weights() {
+    //TODO: return -> Graph
+    print!("Edge weight generation not yet implemented.\n");
+}
 
 /*
 * This function will scan an individual node, and update its edge weights accordingly
 */
-pub fn update_individual_node_data(node: Node) -> Node {}
+pub fn update_individual_node_data(node: Node) {
+    //TODO: return ->Node
+    print!("Node update not yet implemented.\n");
+}
 
 // Create a unit test for the Graph struct
 #[cfg(test)]
@@ -56,11 +66,14 @@ mod tests {
     #[test]
     fn test_mac_addr() {
         let name: String = get_node_name();
-        assert_eq(1, 1);
+        println!("We found a device MAC address of {}", name);
     }
 
     fn test_node_init_with_mac_addr() {
         let node: Node = init_node_with_addr();
-        assert_eq(1, 1);
+        println!(
+            "Initialized Node: (Name: {} - Degree Weight: {})",
+            node.name, node.optimal_weighted_degree
+        );
     }
 }

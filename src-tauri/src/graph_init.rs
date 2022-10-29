@@ -14,20 +14,28 @@ use crate::graph_p::{Graph, Node};
 * This function initializes a graph from all available nodes, storing
 * node information with MAC addresses as keys.
  */
-pub fn initialize_graph_from_data(json_data: json) -> Graph {}
+pub fn initialize_graph_from_data(json_data: json) -> Graph {
+    print!("Graph initialization not yet implemented.\n");
+}
 
 /*
 * This should trigger a fast graph update, adding any additional nodes and updating node location data
 */
-pub fn update_graph(graph: Graph) -> Graph {}
+pub fn update_graph(graph: Graph) -> Graph {
+    print!("Graph update not yet implemented.\n");
+}
 
 /*
 * Note: this function runs algorithms on a copy of the graph, maintaining the graph state that
 * existed at call time.
 */
-pub fn run_algorithms_on_graph(graph: Graph) -> Graph {}
+pub fn run_algorithms_on_graph(graph: Graph) -> Graph {
+    print!("Graph algorithm run not yet implemented.\n");
+}
 
 /*
 * This function serializes and sends graph data to the frontend
 */
-pub fn export_data_to_frontend(graph: Graph) -> json {}
+pub fn export_data_to_frontend(graph: Graph) -> json {
+    print!("Data export to frontend not yet implemented.\n");
+}
