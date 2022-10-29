@@ -69,6 +69,7 @@ mod tests {
         println!("We found a device MAC address of {}", name);
     }
 
+    #[test]
     fn test_node_init_with_mac_addr() {
         let node: Node = init_node_with_addr();
         println!(
