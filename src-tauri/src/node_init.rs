@@ -1,6 +1,6 @@
 extern crate mac_address;
-
 use crate::graph_p::{Graph, Node};
+use serde::{Deserialize, Serialize};
 use std::error::Error;
 
 /*
@@ -12,8 +12,8 @@ use std::error::Error;
 * This function will assign each node a name from it's MAC address. If no address is
 * available, it will alert the user and assign a default name.
 */
-pub fn init_node_with_addr() -> Node {
-    let name = get_node_name();
+pub fn init_own_node_with_addr() -> Node {
+    let name = get_own_node_name();
     let node = Node::new(name.clone());
     return node;
 }
@@ -21,7 +21,7 @@ pub fn init_node_with_addr() -> Node {
 /*
 * Gets MAC address as node name, or assigns a default random number
 */
-pub fn get_node_name() -> String {
+pub fn get_own_node_name() -> String {
     use mac_address::get_mac_address;
     //get mac address
     let DEFAULT: String = "anonymous".to_string();
@@ -42,12 +42,15 @@ pub fn get_node_name() -> String {
 }
 
 /*
-* This function will use the node's location data to generate edge weights for the graph
-
+* This function will use the node's location data to generate edge weights for the graph.
+* Note that we'll define gps format as [lat, lng].
 */
+#[derive(Serialize, Deserialize, Debug)]
 pub fn generate_edge_weights() {
     //TODO: return -> Graph
-    print!("Edge weight generation not yet implemented.\n");
+    // let gps = Point {x: , y: };
+
+    println!("Edge weight generation not yet implemented.\n");
 }
 
 /*
@@ -55,7 +58,7 @@ pub fn generate_edge_weights() {
 */
 pub fn update_individual_node_data(node: Node) {
     //TODO: return ->Node
-    print!("Node update not yet implemented.\n");
+    println!("Node update not yet implemented.\n");
 }
 
 // Create a unit test for the Graph struct
