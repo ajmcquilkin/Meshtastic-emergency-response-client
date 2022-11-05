@@ -32,6 +32,7 @@ import {
   handleTelemetryPacketChannel,
   handleUserPacketChannel,
   handleWaypointPacketChannel,
+  listenSendText,
   MessagePacketChannel,
   ModuleConfigPacketChannel,
   NodeInfoPacketChannel,
@@ -151,6 +152,7 @@ function* subscribeAll(deviceId: number, connection: ISerialConnection) {
     call(handleConfigPacketChannel, deviceId, configPacketChannel),
     call(handleModuleConfigPacketChannel, deviceId, moduleConfigPacketChannel),
     call(handleMessageChannel, deviceId, messagePacketChannel),
+    call(listenSendText, connection),
   ]);
 }
 

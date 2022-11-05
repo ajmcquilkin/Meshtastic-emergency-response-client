@@ -1,8 +1,9 @@
 import { EventChannel, eventChannel } from "redux-saga";
-import { call, put, take } from "redux-saga/effects";
-import type { Types } from "@meshtastic/meshtasticjs";
+import { call, put, take, takeEvery } from "redux-saga/effects";
+import type { ISerialConnection, Types } from "@meshtastic/meshtasticjs";
 
 import { deviceSliceActions } from "@features/device/deviceSlice";
+import { sendTextAction } from "@features/device/deviceActions";
 
 export type DeviceMetadataPacket = Types.DeviceMetadataPacket;
 export type RoutingPacket = Types.RoutingPacket;
@@ -29,6 +30,26 @@ export type ChannelPacketChannel = EventChannel<ChannelPacket>;
 export type ConfigPacketChannel = EventChannel<ConfigPacket>;
 export type ModuleConfigPacketChannel = EventChannel<ModuleConfigPacket>;
 export type MessagePacketChannel = EventChannel<MessagePacket>;
+
+export function* listenSendText(connection: ISerialConnection) {
+  yield takeEvery(sendTextAction.type, handleSendText, connection);
+}
+
+export function* handleSendText(
+  connection: ISerialConnection,
+  action: ReturnType<typeof sendTextAction>
+) {
+  const { message, destination, wantAck, channel, callback } = action.payload;
+
+  yield call(
+    [connection, "sendText"],
+    message,
+    destination,
+    wantAck,
+    channel,
+    callback
+  );
+}
 
 function* handleSagaError(error: unknown) {
   yield put({ type: "GENERAL_ERROR", payload: error });
