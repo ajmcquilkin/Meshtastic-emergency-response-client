@@ -6,12 +6,9 @@ export interface Message {
   preview: string;
 }
 
-const MessageText = (
-  { name, preview }: Message,
-  { size, state, isBase }: MapNodeIcon
-) => {
+const MessageText = ({ name, preview }: Message) => {
   return (
-    <div className="p-5 hover:bg-gray-200 text-serif">
+    <div className="p-5 hover:bg-blue-50 bg-white text-serif">
       <div>
         <div className="bg-red flex flex-row">
           <div className="">
@@ -19,10 +16,10 @@ const MessageText = (
               size={"sm"}
               state={"error"}
               isBase={false}
-              className="drop-shadow-lg"
+              className="drop-shadow-lg -rotate-45"
             />
           </div>
-          <div className="text-xl pl-1 flex">{name}</div>
+          <div className="text-xl pl-1 flex truncate">{name}</div>
           <div className="ml-auto text-lg">
             <div>{"(2 min. ago)"}</div>
           </div>

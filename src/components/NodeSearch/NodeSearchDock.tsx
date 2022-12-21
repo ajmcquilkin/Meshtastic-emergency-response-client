@@ -112,7 +112,11 @@ const NodeSearchDock = () => {
           setQuery={setQuery}
           placeholder="Search for nodes"
         />
-        <MapIconButton className="p-3" type="submit" onClick={filterNodes}>
+        <MapIconButton
+          className="p-3 hover:bg-blue-50"
+          type="submit"
+          onClick={filterNodes}
+        >
           <MagnifyingGlassIcon className="w-6 h-6 text-gray-500" />
         </MapIconButton>
       </div>

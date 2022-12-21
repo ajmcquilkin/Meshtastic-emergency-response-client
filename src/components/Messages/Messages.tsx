@@ -9,6 +9,11 @@ const previewText =
   "We've been trying to reach you concerning your Meshtastic's extended warranty. You should've received a notice in the mail about your Meshtastic's extended warranty eligibility. Since we've not gotten a response, we're giving you a final courtesy call before we close out your file. Press 2 to be removed and placed on our do-not-call list. To speak to someone about possibly extending or reinstating your Meshtastic's warranty, press 1 to speak with a warranty specialist.";
 const name = "Mr. Meshtastic";
 
+function Text() {
+  const greeting = "Hello Function Component!";
+  return <h1>{greeting}</h1>;
+}
+
 const Messages = () => {
   const [query, setQuery] = useState("");
 
@@ -21,7 +26,7 @@ const Messages = () => {
           placeholder={"Search for messages"}
         />
         <MapIconButton
-          className="p-3"
+          className="p-3 hover:bg-blue-50 "
           type="submit"
           onClick={() => alert("Functionality not implemented")}
         >
