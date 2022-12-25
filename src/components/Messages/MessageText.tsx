@@ -8,7 +8,7 @@ export interface Message {
 
 const MessageText = ({ name, preview }: Message) => {
   return (
-    <div className="p-5 hover:bg-blue-50 bg-white text-serif">
+    <div className="p-5 hover:bg-gray-200 bg-white text-serif">
       <div>
         <div className="bg-red flex flex-row">
           <div className="">

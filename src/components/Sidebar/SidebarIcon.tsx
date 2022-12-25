@@ -10,8 +10,8 @@ const SidebarIcon = ({ isActive, renderIcon, onClick }: ISidebarIconProps) => {
   return (
     <button
       type="button"
-      className={`relative hover:bg-blue-50 w-14 h-14 ${
-        isActive ? "bg-gray-200" : ""
+      className={`relative hover:bg-gray-200 w-14 h-14 ${
+        isActive ? "bg-blue-50" : ""
       }`}
       onClick={onClick}
     >

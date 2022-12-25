@@ -26,7 +26,7 @@ const Messages = () => {
           placeholder={"Search for messages"}
         />
         <MapIconButton
-          className="p-3 hover:bg-blue-50 "
+          className="p-3 hover:bg-gray-200"
           type="submit"
           onClick={() => alert("Functionality not implemented")}
         >

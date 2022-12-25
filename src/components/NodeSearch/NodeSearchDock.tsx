@@ -113,7 +113,7 @@ const NodeSearchDock = () => {
           placeholder="Search for nodes"
         />
         <MapIconButton
-          className="p-3 hover:bg-blue-50"
+          className="p-3 hover:bg-gray-200"
           type="submit"
           onClick={filterNodes}
         >
